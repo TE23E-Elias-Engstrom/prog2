@@ -51,23 +51,43 @@ public class Bil {
     }
 
     public void setHastighet(int hastighet) {
-        this.hastighet = hastighet;
+        if (hastighet <= 0 || hastighet >= 500) {
+            throw new IllegalArgumentException("Ange ett giltigt värde på hastighet");
+        }
     }
 
     public void setModell(String modell) {
-        this.modell = modell;
+        if (modell == null || modell.isEmpty()) {
+            throw new IllegalArgumentException("Modell får inte vara tomt.");
+        }
     }
 
     public void setMärke(String märke) {
         this.märke = märke;
     }
 
-    public void setRegistreringsnummer(String registreringsnummer) {
-        this.registreringsnummer = registreringsnummer;
-    }
-
     public void setÅrsmodell(int årsmodell) {
         this.årsmodell = årsmodell;
     }
 
+    public void ökaHastighet(int ökning) {
+        if (ökning <= 0) {
+            throw new IllegalArgumentException("Ökningen kan inte vara mindre än 0");
+        } else {
+            hastighet += ökning;
+        }
+    }
+
+    public void bromsa(int minskning) {
+        if (minskning >= 0 || minskning < hastighet) {
+            hastighet -= minskning;
+        } else {
+            throw new IllegalArgumentException(
+                    "Ange ett postitiv giltig bromsning som är mindre än hastigheten: " + hastighet);
+        }
+    }
+
+    public String toString() {
+        return "Märke: " + märke + " Modell: " + modell + " Reg_nr: " + registreringsnummer + " Årmodell: " + årsmodell;
+    }
 }
