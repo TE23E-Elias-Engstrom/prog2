@@ -14,7 +14,7 @@ public class Bil {
             throw new IllegalArgumentException("Modell får inte vara tomt.");
         } else if (registreringsnummer == null || registreringsnummer.isEmpty()) {
             throw new IllegalArgumentException("Registreringsnummer får inte vara tomt.");
-        } else if (årsmodell <= 1860 || årsmodell >= 2026) {
+        } else if (årsmodell <= 1860 || årsmodell >= Year.now().getValue()) {
             throw new IllegalArgumentException("årsmodellen får inte vara under 1860 eller högre än nuvarande år.");
         } else {
             IO.println("Vad gör du skriv något rätt värde!!!");
