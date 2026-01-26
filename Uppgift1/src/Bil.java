@@ -7,17 +7,14 @@ public class Bil {
     private int årsmodell;
     private int hastighet;
 
-    public Bil(String märke, String modell, String registreringsnummer) {
+    public Bil(String märke, String modell, String registreringsnummer, int årsmodell) {
         if (märke == null || märke.isEmpty()) {
             throw new IllegalArgumentException("Märke får inte vara tomt.");
-        }
-        if (modell == null || modell.isEmpty()) {
+        } else if (modell == null || modell.isEmpty()) {
             throw new IllegalArgumentException("Modell får inte vara tomt.");
-        }
-        if (registreringsnummer == null || registreringsnummer.isEmpty()) {
+        } else if (registreringsnummer == null || registreringsnummer.isEmpty()) {
             throw new IllegalArgumentException("Registreringsnummer får inte vara tomt.");
-        }
-        if (årsmodell > 1860 || årsmodell <= Year.now().getValue()) {
+        } else if (årsmodell <= 1860 || årsmodell >= 2026) {
             throw new IllegalArgumentException("årsmodellen får inte vara under 1860 eller högre än nuvarande år.");
         } else {
             IO.println("Vad gör du skriv något rätt värde!!!");
