@@ -41,5 +41,12 @@ public class App {
         // Testa att hitta en bil
         Bil bil = register.hittaBil("HIJ789");
         IO.println("\nHittad bil" + bil);
+
+        // Försök att lägga till en bil med samma reg_nr
+        try {
+            register.läggtillBil(new Bil("Volkswagen", "Up!", "ABC123", 2025));
+        } catch (IllegalArgumentException e) {
+            IO.println("\nFel: " + e.getMessage());
+        }
     }
 }
