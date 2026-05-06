@@ -16,13 +16,13 @@ public class Books extends Publications {
 
     @Override
     public void printInfo() {
-        IO.println("---------------Books------------");
+        IO.println("--------------Books------------");
         IO.println("ID         : " + id);
         IO.println("Titel      : " + title);
         IO.println("Författare : " + author);
         IO.println("Genre      : " + genre);
         IO.println("Sidor      : " + pages);
         IO.println("Tillgänglig: " + (isAvailable ? "Ja" : "Nej"));
-        IO.println("---------------------------");
+        IO.println("--------------------------------");
     }
 }
