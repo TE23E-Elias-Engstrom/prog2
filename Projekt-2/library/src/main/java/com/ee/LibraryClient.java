@@ -7,6 +7,8 @@ import kong.unirest.Unirest;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+// En klass som hämtar informationen från servern och skapar java-objekt av json datan.
+
 public class LibraryClient {
 
     // URL till json servern
