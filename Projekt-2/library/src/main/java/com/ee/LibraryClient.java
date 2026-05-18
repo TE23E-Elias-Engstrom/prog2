@@ -28,6 +28,7 @@ public class LibraryClient {
             String innehallJson = response.getBody();
 
             // TypeToken säger till Gson vilken typ den vill ha i vårt fall ArrayList<Books>
+            // som en mall för json till gson.
             Type booksTyp = new TypeToken<ArrayList<Books>>() {
             }.getType();
             books = gson.fromJson(innehallJson, booksTyp);
@@ -51,7 +52,7 @@ public class LibraryClient {
             // TypeToken gör samma som på books fast med Magazines.
             Type magazineTyp = new TypeToken<ArrayList<Magazines>>() {
             }.getType();
-            magazines = gson.fromJson(innehallJson, magazinetyp);
+            magazines = gson.fromJson(innehallJson, magazineTyp);
         } catch (Exception e) {
             IO.println("Fel vid hämtning av böcker " + e.getLocalizedMessage());
         }
