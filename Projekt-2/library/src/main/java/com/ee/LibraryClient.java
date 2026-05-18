@@ -25,12 +25,12 @@ public class LibraryClient {
 
         try {
             HttpResponse<String> response = Unirest.get(basURL + "/books").asString();
-            String json = response.getBody();
+            String innehallJson = response.getBody();
 
             // TypeToken säger till Gson vilken typ den vill ha i vårt fall ArrayList<Books>
-            Type type = new TypeToken<ArrayList<Books>>() {
+            Type booksTyp = new TypeToken<ArrayList<Books>>() {
             }.getType();
-            books = gson.fromJson(json, type);
+            books = gson.fromJson(innehallJson, booksTyp);
 
         } catch (Exception e) {
             IO.println("Fel vid hämtning av böcker " + e.getLocalizedMessage());
@@ -46,12 +46,12 @@ public class LibraryClient {
 
         try {
             HttpResponse<String> response = Unirest.get(basURL + "/magazines").asString();
-            String json = response.getBody();
+            String innehallJson = response.getBody();
 
             // TypeToken gör samma som på books fast med Magazines.
-            Type type = new TypeToken<ArrayList<Magazines>>() {
+            Type magazineTyp = new TypeToken<ArrayList<Magazines>>() {
             }.getType();
-            magazines = gson.fromJson(json, type);
+            magazines = gson.fromJson(innehallJson, magazinetyp);
         } catch (Exception e) {
             IO.println("Fel vid hämtning av böcker " + e.getLocalizedMessage());
         }
