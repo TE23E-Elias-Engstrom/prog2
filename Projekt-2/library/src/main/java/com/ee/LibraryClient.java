@@ -9,6 +9,8 @@ import kong.unirest.Unirest;
 
 import java.util.ArrayList;
 
+// Elias Engström
+
 // En klass som hämtar informationen från servern och skapar java-objekt av json datan.
 
 public class LibraryClient {

@@ -3,6 +3,9 @@ package com.ee;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+// Elias Engström
+// Main filen som hanterar en meny
+
 public class Main {
     public static void main(String[] args) {
         ArrayList<Books> books = new ArrayList<Books>();

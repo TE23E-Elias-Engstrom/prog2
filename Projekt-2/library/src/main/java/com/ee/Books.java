@@ -1,5 +1,7 @@
 package com.ee;
 
+// Elias Engström
+
 // Klass Books, ärver av Publications, representerar en bok.
 
 public class Books extends Publications {

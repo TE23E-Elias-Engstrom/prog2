@@ -1,5 +1,7 @@
 package com.ee;
 
+// Elias Engström
+
 // En basklass Publications som innehåller gemensamma variabler för books och magazines
 
 public abstract class Publications {
