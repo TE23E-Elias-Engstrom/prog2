@@ -105,7 +105,7 @@ public class Main {
                 scanner.nextLine();
 
                 magazines.add(new Magazines(id, title, false, issueNumber, category, publishedYear));
-                IO.println("Tidningen \"" + title + "\" har lagts till.");
+                IO.println("Tidningen " + title + " har lagts till.");
             } else if (val == 6) {
                 IO.println("Avslutar Bibliotekssystemet. Hej då!");
             } else {
