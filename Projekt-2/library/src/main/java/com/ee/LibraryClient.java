@@ -1,11 +1,13 @@
 package com.ee;
 
 import com.google.gson.Gson;
+import java.lang.reflect.Type;
+import com.google.gson.reflect.TypeToken;
+
 import kong.unirest.HttpResponse;
 import kong.unirest.Unirest;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 // En klass som hämtar informationen från servern och skapar java-objekt av json datan.
 
@@ -25,9 +27,11 @@ public class LibraryClient {
             HttpResponse<String> response = Unirest.get(basURL + "/books").asString();
             String json = response.getBody();
 
-            // Gson omvandlar hela JSON array direkt till en array av Book-objekt
-            Books[] booksArray = gson.fromJson(json, Books[].class);
-            books.addAll(Arrays.asList(booksArray));
+            // TypeToken säger till Gson vilken typ den vill ha i vårt fall ArrayList<Books>
+            Type type = new TypeToken<ArrayList<Books>>() {
+            }.getType();
+            books = gson.fromJson(json, type);
+
         } catch (Exception e) {
             IO.println("Fel vid hämtning av böcker " + e.getLocalizedMessage());
         }
@@ -44,9 +48,10 @@ public class LibraryClient {
             HttpResponse<String> response = Unirest.get(basURL + "/magazines").asString();
             String json = response.getBody();
 
-            // Gson omvandlar hela JSON array direkt till en array av Magazines-objekt
-            Magazines[] magazinesArray = gson.fromJson(json, Magazines[].class);
-            magazines.addAll(Arrays.asList(magazinesArray));
+            // TypeToken gör samma som på books fast med Magazines.
+            Type type = new TypeToken<ArrayList<Magazines>>() {
+            }.getType();
+            magazines = gson.fromJson(json, type);
         } catch (Exception e) {
             IO.println("Fel vid hämtning av böcker " + e.getLocalizedMessage());
         }
